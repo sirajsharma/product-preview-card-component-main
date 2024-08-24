@@ -1,0 +1,131 @@
+@use "./breakpoints" as *;
+@use "./colors" as *;
+@use "./mixins" as *;
+@use "./resets" as *;
+@use "./typography" as *;
+
+:root {
+  font-size: 14px;
+}
+
+body {
+  font-size: 1rem;
+  background-color: $cream;
+
+  padding-inline: 1em;
+  padding-block: 2em;
+
+  @include break-point($desktop) {
+    display: grid;
+    place-items: center;
+  }
+}
+
+.card {
+  background-color: $white;
+  border-radius: 0.5em;
+  overflow: hidden;
+
+  @include break-point($desktop) {
+    min-width: 42.9em;
+    max-width: 42.9em;
+    display: flex;
+  }
+
+  &__picture {
+    @include break-point($desktop) {
+      min-width: 50%;
+      max-width: 50%;
+    }
+  }
+
+  &__article {
+    padding: 2em;
+
+    @include break-point($desktop) {
+      padding-block: 2.5em;
+    }
+  }
+
+  &__heading {
+    @include montserrat(500);
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    color: $very-dark-blue;
+    margin-bottom: 1em;
+
+    @include break-point($desktop) {
+      margin-bottom: 1.5em;
+    }
+  }
+
+  &__subheading {
+    @include fraunces(700);
+    font-size: 2rem;
+    color: $very-dark-blue;
+
+    @include break-point($desktop) {
+      width: 75%;
+    }
+  }
+
+  &__description {
+    @include montserrat(500);
+    font-size: 1rem;
+    letter-spacing: 0.4px;
+    color: $dark-grayish-blue;
+    margin-top: 1.2em;
+    margin-bottom: 1.5em;
+
+    @include break-point($desktop) {
+      margin-top: 1.5em;
+      margin-bottom: 2em;
+      line-height: 1.5;
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+
+    @include break-point($desktop) {
+      margin-bottom: 1.5em;
+    }
+  }
+
+  &__discounted-price {
+    @include fraunces(700);
+    font-size: 2rem;
+    color: $dark-cyan;
+  }
+
+  &__original-price {
+    @include montserrat(500);
+    font-size: 1rem;
+    color: $dark-grayish-blue;
+    text-decoration: line-through;
+  }
+
+  &__button {
+    @include montserrat(700);
+    width: 100%;
+    padding-block: 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: $dark-cyan;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    transition: background-color 0.5s;
+
+    &:hover {
+      background-color: $dark-green;
+      cursor: pointer;
+    }
+  }
+}
